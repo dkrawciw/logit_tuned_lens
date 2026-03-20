@@ -6,6 +6,22 @@ import pandas as pd
 import os
 import numpy as np
 
+"""Plot setup"""
+sns.set_style("whitegrid")
+sns.set_color_codes(palette="colorblind")
+
+plt.rcParams.update({
+	"text.usetex": False,  # keep False to avoid requiring a LaTeX installation
+	"mathtext.fontset": "cm",  # Computer Modern (LaTeX-like)
+	"font.family": "serif",
+	"font.serif": ["Computer Modern Roman", "DejaVu Serif"],
+    "axes.labelsize": 14,      # increase axis label size
+    "axes.titlesize": 16,
+    "xtick.labelsize": 14,     # increase tick / bin label size
+    "ytick.labelsize": 14,
+    "legend.fontsize": 12,
+})
+
 # Device setup
 device = "cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu"
 print(f"Using device: {device}")
@@ -79,5 +95,5 @@ def plot_logit_evolution(prompt: str, top_k: int = 10, save_path: str = "plots/l
     plt.show()
 
 if __name__ == "__main__":
-    prompt = "President Obama's last name is"
+    prompt = "The best state in the US is"
     plot_logit_evolution(prompt)

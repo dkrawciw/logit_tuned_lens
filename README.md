@@ -29,6 +29,10 @@ The following is the Logit Lens evolution of the probabilities of the next gener
 
 ![Heatmap of the next most probable tokens at each layer in a transformer using a logit lens.](plots/logit_lens.svg)
 
+![Heatmap of the next most probable tokens at each layer in a transformer using a tuned lens.](plots/tuned_lens.svg)
+
 ## Discussion
 
 As we discussed in class, the logit lens is not incredibly helpful in understanding what is happening under the hood in a transformer. While this is true, I would say that it is interesting that there happens to be some coherence in what the next token should be. For example, when the prompt is: "The best state in the US is", the most probable token predicted in the first layer is: "not" which once could expect in a logical sentence. While I do not think there is much that this tells us about interpreting AI, I do think it is at the very least, interesting to see.
+
+The tuned lens was discussed as being more informative than the logit lens. As can be seen above, and is representative of most of the results I found, the results are roughly the same. My tuned lens regressions are not trained on a lot of data, which may account for the small difference. But, as you can see above they are roughly the same.
